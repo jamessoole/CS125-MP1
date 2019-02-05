@@ -5,7 +5,7 @@ public class Transform {
     /** Expand in the horizontal axis around the image center.
      * @param amount these r words
      * @param originalImage these r also words
-     * @return */
+     * @return the expanded image*/
     public static RGBAPixel[][] expandHorizontal(final RGBAPixel[][] originalImage, final int amount) {
         return null;
     }
