@@ -19,73 +19,73 @@ public class Transform {
     /** Flip the image on the horizontal axis across its center.
      * @param originalImage these r also words
      * @return the expanded image*/
-    public static RGBAPixel[][]	flipHorizontal(final RGBAPixel[][] originalImage) {
-    	return null;
+    public static RGBAPixel[][] flipHorizontal(final RGBAPixel[][] originalImage) {
+        return null;
     }
     /** Flip the image on the vertical axis across its center.
      * @param originalImage these r also words
      * @return the expanded image*/
-    public static RGBAPixel[][]	flipVertical(final RGBAPixel[][] originalImage) {
+    public static RGBAPixel[][] flipVertical(final RGBAPixel[][] originalImage) {
         return null;
     }
     /** Remove a green screen mask from an image.
      * @param originalImage these r also words
      * @return the expanded image*/
-    public static RGBAPixel[][]	greenScreen(final RGBAPixel[][] originalImage) {
+    public static RGBAPixel[][] greenScreen(final RGBAPixel[][] originalImage) {
         return null;
     }
     /** Rotate the image left by 90 degrees around its center.
      * @param originalImage these r also words
      * @return the expanded image*/
-    public static RGBAPixel[][]	rotateLeft(final RGBAPixel[][] originalImage) {
+    public static RGBAPixel[][] rotateLeft(final RGBAPixel[][] originalImage) {
         return null;
     }
     /** Rotate the image left by 90 degrees around its center.
      * @param originalImage these r also words
      * @return the expanded image*/
-    public static RGBAPixel[][]	rotateRight(final RGBAPixel[][] originalImage) {
+    public static RGBAPixel[][] rotateRight(final RGBAPixel[][] originalImage) {
         return null;
     }
     /** Shift the image down by the specified amount.
      * @param originalImage these r also words
      * @param amount these r words
      * @return the expanded image*/
-    public static RGBAPixel[][]	shiftDown(final RGBAPixel[][] originalImage, final int amount) {
+    public static RGBAPixel[][] shiftDown(final RGBAPixel[][] originalImage, final int amount) {
         return null;
     }
     /** Shift the image left by the specified amount.
      * @param originalImage these r also words
      * @param amount these r words
      * @return the expanded image*/
-    public static RGBAPixel[][]	shiftLeft(final RGBAPixel[][] originalImage, final int amount) {
+    public static RGBAPixel[][] shiftLeft(final RGBAPixel[][] originalImage, final int amount) {
         return null;
     }
     /** Shift the image right by the specified amount.
      * @param originalImage these r also words
      * @param amount these r words
      * @return the expanded image*/
-    public static RGBAPixel[][]	shiftRight(final RGBAPixel[][] originalImage, final int amount) {
+    public static RGBAPixel[][] shiftRight(final RGBAPixel[][] originalImage, final int amount) {
         return null;
     }
     /** Shift the image up by the specified amount.
      * @param originalImage these r also words
      * @param amount these r words
      * @return the expanded image*/
-    public static RGBAPixel[][]	shiftUp(final RGBAPixel[][] originalImage, final int amount) {
+    public static RGBAPixel[][] shiftUp(final RGBAPixel[][] originalImage, final int amount) {
         return null;
     }
     /** Shrink in the horizontal axis around the image center.
      * @param originalImage these r also words
      * @param amount these r words
      * @return the expanded image*/
-    public static RGBAPixel[][]	shrinkHorizontal(final RGBAPixel[][] originalImage, final int amount) {
+    public static RGBAPixel[][] shrinkHorizontal(final RGBAPixel[][] originalImage, final int amount) {
         return null;
     }
     /** Shrink in the vertical axis around the image center.
      * @param originalImage these r also words
      * @param amount these r words
      * @return the expanded image*/
-    public static RGBAPixel[][]	shrinkVertical(final RGBAPixel[][] originalImage, final int amount) {
+    public static RGBAPixel[][] shrinkVertical(final RGBAPixel[][] originalImage, final int amount) {
         return null;
     }
 
