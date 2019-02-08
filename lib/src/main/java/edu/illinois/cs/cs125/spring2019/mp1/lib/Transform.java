@@ -13,14 +13,14 @@ public class Transform {
      * @param amount these r words
      * @param originalImage these r also words
      * @return the expanded image*/
-    public static RGBAPixel[][]	expandVertical(final RGBAPixel[][] originalImage, final int amount) {
+    public static RGBAPixel[][] expandVertical(final RGBAPixel[][] originalImage, final int amount) {
         return null;
     }
     /** Flip the image on the horizontal axis across its center.
      * @param originalImage these r also words
      * @return the expanded image*/
     public static RGBAPixel[][]	flipHorizontal(final RGBAPixel[][] originalImage) {
-        return null;
+    	return null;
     }
     /** Flip the image on the vertical axis across its center.
      * @param originalImage these r also words
@@ -60,8 +60,34 @@ public class Transform {
     public static RGBAPixel[][]	shiftLeft(final RGBAPixel[][] originalImage, final int amount) {
         return null;
     }
-
-
+    /** Shift the image right by the specified amount.
+     * @param originalImage these r also words
+     * @param amount these r words
+     * @return the expanded image*/
+    public static RGBAPixel[][]	shiftRight(final RGBAPixel[][] originalImage, final int amount) {
+        return null;
+    }
+    /** Shift the image up by the specified amount.
+     * @param originalImage these r also words
+     * @param amount these r words
+     * @return the expanded image*/
+    public static RGBAPixel[][]	shiftUp(final RGBAPixel[][] originalImage, final int amount) {
+        return null;
+    }
+    /** Shrink in the horizontal axis around the image center.
+     * @param originalImage these r also words
+     * @param amount these r words
+     * @return the expanded image*/
+    public static RGBAPixel[][]	shrinkHorizontal(final RGBAPixel[][] originalImage, final int amount) {
+        return null;
+    }
+    /** Shrink in the vertical axis around the image center.
+     * @param originalImage these r also words
+     * @param amount these r words
+     * @return the expanded image*/
+    public static RGBAPixel[][]	shrinkVertical(final RGBAPixel[][] originalImage, final int amount) {
+        return null;
+    }
 
 
 }
