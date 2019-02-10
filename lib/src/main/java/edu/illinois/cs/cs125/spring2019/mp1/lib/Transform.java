@@ -1,7 +1,11 @@
 package edu.illinois.cs.cs125.spring2019.mp1.lib;
 
+
+
+
 /** Javadoc comment thing. */
 public class Transform {
+
     /** Expand in the horizontal axis around the image center.
      * @param amount these r words
      * @param originalImage these r also words
@@ -9,6 +13,10 @@ public class Transform {
     public static RGBAPixel[][] expandHorizontal(final RGBAPixel[][] originalImage, final int amount) {
         return null;
     }
+
+
+
+
     /** Expand in the vertical axis around the image center.
      * @param amount these r words
      * @param originalImage these r also words
@@ -28,12 +36,31 @@ public class Transform {
     public static RGBAPixel[][] flipVertical(final RGBAPixel[][] originalImage) {
         return null;
     }
+
+
+
+
+
     /** Remove a green screen mask from an image.
      * @param originalImage these r also words
      * @return the expanded image*/
     public static RGBAPixel[][] greenScreen(final RGBAPixel[][] originalImage) {
+        final int maxValue = 255;
+        final int minvalue = 0;
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; i < originalImage[i].length; i++) {
+                if (originalImage[i][j].getGreen() == maxValue) {
+                    originalImage[i][j].setAlpha(0);
+                }
+            }
+        }
         return null;
     }
+
+
+
+
+
     /** Rotate the image left by 90 degrees around its center.
      * @param originalImage these r also words
      * @return the expanded image*/
