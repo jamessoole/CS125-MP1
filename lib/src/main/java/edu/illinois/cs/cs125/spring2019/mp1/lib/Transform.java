@@ -1,11 +1,10 @@
 package edu.illinois.cs.cs125.spring2019.mp1.lib;
 
 
-
-
 /** Javadoc comment thing. */
 public class Transform {
-
+    /** maximum value.*/
+    public static final int MAXVALUE = 255;
     /** Expand in the horizontal axis around the image center.
      * @param amount these r words
      * @param originalImage these r also words
@@ -45,16 +44,17 @@ public class Transform {
      * @param originalImage these r also words
      * @return the expanded image*/
     public static RGBAPixel[][] greenScreen(final RGBAPixel[][] originalImage) {
-        final int maxValue = 255;
-        final int minvalue = 0;
+        RGBAPixel[][] returnImage = new RGBAPixel[originalImage.length][originalImage[0].length];
         for (int i = 0; i < originalImage.length; i++) {
-            for (int j = 0; i < originalImage[i].length; i++) {
-                if (originalImage[i][j].getGreen() == maxValue) {
-                    originalImage[i][j].setAlpha(0);
+            for (int j = 0; j < originalImage[i].length; j++) {
+                if (originalImage[i][j].getGreen() == MAXVALUE) {
+                    returnImage[i][j] = RGBAPixel.getFillValue();
+                }   else {
+                    returnImage[i][j] = originalImage[i][j];
                 }
             }
         }
-        return null;
+        return returnImage;
     }
 
 
@@ -78,13 +78,24 @@ public class Transform {
      * @param amount these r words
      * @return the expanded image*/
     public static RGBAPixel[][] shiftDown(final RGBAPixel[][] originalImage, final int amount) {
-        return null;
+        return shiftUp(originalImage, amount * -1);
     }
     /** Shift the image left by the specified amount.
      * @param originalImage these r also words
      * @param amount these r words
      * @return the expanded image*/
     public static RGBAPixel[][] shiftLeft(final RGBAPixel[][] originalImage, final int amount) {
+        RGBAPixel[][] returnImage = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                if (originalImage[i + 1][j] != null) {
+                    returnImage[i][j] = originalImage[i + 1][j];
+                }   else {
+                    returnImage[i][j] = RGBAPixel.getFillValue();
+                }
+                return returnImage;
+            }
+        }
         return null;
     }
     /** Shift the image right by the specified amount.
@@ -92,15 +103,32 @@ public class Transform {
      * @param amount these r words
      * @return the expanded image*/
     public static RGBAPixel[][] shiftRight(final RGBAPixel[][] originalImage, final int amount) {
-        return null;
+        return shiftLeft(originalImage, amount * -1);
     }
+
+
+
     /** Shift the image up by the specified amount.
      * @param originalImage these r also words
      * @param amount these r words
      * @return the expanded image*/
     public static RGBAPixel[][] shiftUp(final RGBAPixel[][] originalImage, final int amount) {
+        RGBAPixel[][] returnImage = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                if (originalImage[i][j + 1] != null) {
+                    returnImage[i][j] = originalImage[i][j + 1];
+                }   else {
+                    returnImage[i][j] = RGBAPixel.getFillValue();
+                }
+                return returnImage;
+            }
+        }
         return null;
     }
+
+
+
     /** Shrink in the horizontal axis around the image center.
      * @param originalImage these r also words
      * @param amount these r words
