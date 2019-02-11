@@ -88,10 +88,9 @@ public class Transform {
         RGBAPixel[][] returnImage = RGBAPixel.copyArray(originalImage);
         for (int i = 0; i < originalImage.length; i++) {
             for (int j = 0; j < originalImage[0].length; j++) {
-                if (i >= originalImage.length - amount) {
+                if (i >= originalImage.length - amount || i + amount < 0) {
                     returnImage[i][j] = RGBAPixel.getFillValue();
-                }
-                if (i < originalImage.length - amount) {
+                } else {
                     returnImage[i][j] = originalImage[i + amount][j];
                 }
             }
@@ -115,11 +114,11 @@ public class Transform {
     public static RGBAPixel[][] shiftUp(final RGBAPixel[][] originalImage, final int amount) {
         RGBAPixel[][] returnImage = RGBAPixel.copyArray(originalImage);
         for (int i = 0; i < originalImage.length; i++) {
-            for (int j = 0; j < originalImage[i].length; j++) {
-                if (j - amount >= 0) {
-                    returnImage[i][j - amount] = originalImage[i][j];
-                }   else {
+            for (int j = 0; j < originalImage[0].length; j++) {
+                if (j >= originalImage[i].length - amount || j + amount < 0) {
                     returnImage[i][j] = RGBAPixel.getFillValue();
+                } else {
+                    returnImage[i][j] = originalImage[i][j + amount];
                 }
             }
         }
