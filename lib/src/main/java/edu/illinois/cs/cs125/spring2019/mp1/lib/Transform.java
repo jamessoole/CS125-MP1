@@ -85,18 +85,18 @@ public class Transform {
      * @param amount these r words
      * @return the expanded image*/
     public static RGBAPixel[][] shiftLeft(final RGBAPixel[][] originalImage, final int amount) {
-        RGBAPixel[][] returnImage = new RGBAPixel[originalImage.length][originalImage[0].length];
+        RGBAPixel[][] returnImage = RGBAPixel.copyArray(originalImage);
         for (int i = 0; i < originalImage.length; i++) {
-            for (int j = 0; j < originalImage[i].length; j++) {
-                if (originalImage[i + 1][j] != null) {
-                    returnImage[i][j] = originalImage[i + 1][j];
-                }   else {
+            for (int j = 0; j < originalImage[0].length; j++) {
+                if (i >= originalImage.length - amount) {
                     returnImage[i][j] = RGBAPixel.getFillValue();
                 }
-                return returnImage;
+                if (i < originalImage.length - amount) {
+                    returnImage[i][j] = originalImage[i + amount][j];
+                }
             }
         }
-        return null;
+        return returnImage;
     }
     /** Shift the image right by the specified amount.
      * @param originalImage these r also words
@@ -113,18 +113,17 @@ public class Transform {
      * @param amount these r words
      * @return the expanded image*/
     public static RGBAPixel[][] shiftUp(final RGBAPixel[][] originalImage, final int amount) {
-        RGBAPixel[][] returnImage = new RGBAPixel[originalImage.length][originalImage[0].length];
+        RGBAPixel[][] returnImage = RGBAPixel.copyArray(originalImage);
         for (int i = 0; i < originalImage.length; i++) {
             for (int j = 0; j < originalImage[i].length; j++) {
-                if (originalImage[i][j + 1] != null) {
-                    returnImage[i][j] = originalImage[i][j + 1];
+                if (j - amount >= 0) {
+                    returnImage[i][j - amount] = originalImage[i][j];
                 }   else {
                     returnImage[i][j] = RGBAPixel.getFillValue();
                 }
-                return returnImage;
             }
         }
-        return null;
+        return returnImage;
     }
 
 
