@@ -104,7 +104,13 @@ public class Transform {
      * @return the expanded image
      */
     public static RGBAPixel[][] rotateLeft(final RGBAPixel[][] originalImage) {
-        return null;
+        RGBAPixel[][] returnImage = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                returnImage[i][j] = originalImage[j][originalImage.length - i - 1];
+            }
+        }
+        return returnImage;
     }
 
     /**
