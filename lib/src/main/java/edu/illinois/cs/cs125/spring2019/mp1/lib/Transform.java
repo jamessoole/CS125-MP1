@@ -51,9 +51,14 @@ public class Transform {
      * @return the expanded image
      */
     public static RGBAPixel[][] flipHorizontal(final RGBAPixel[][] originalImage) {
-        return null;
+        RGBAPixel[][] returnImage = new RGBAPixel[originalImage.length][originalImage[0].length];
+        for (int i = 0; i < originalImage.length; i++) {
+            for (int j = 0; j < originalImage[i].length; j++) {
+                returnImage[i][j] = originalImage[originalImage[i].length - 1 - i][j];
+            }
+        }
+        return returnImage;
     }
-
     /**
      * Flip the image on the vertical axis across its center.
      *
