@@ -450,7 +450,7 @@ public class RGBAPixel {
             outputArray[i] = Arrays.deepToString(transposedArray[i]);
         }
 
-        return StringUtils.join("\n", outputArray);
+        return StringUtils.join(outputArray, "\n");
     }
 
     /**

@@ -7,6 +7,9 @@ public class Transform {
      * maximum value.
      */
     public static final int MAXVALUE = 255;
+    /** comenterjbgoer.
+    */
+    public static final int NUMB = 3;
 
     /**
      * Expand in the horizontal axis around the image center.
@@ -52,10 +55,10 @@ public class Transform {
      */
     public static RGBAPixel[][] flipHorizontal(final RGBAPixel[][] originalImage) {
         RGBAPixel[][] returnImage = new RGBAPixel[originalImage.length][originalImage[0].length];
-        for (int i = 0; i < originalImage.length; i++) {
-            for (int j = 0; j < originalImage[i].length; j++) {
-                returnImage[i][j] = originalImage[originalImage[i].length - 1 - i][j];
-            }
+        for (int i = 0; i < originalImage.length / 2; i++) {
+            RGBAPixel[] onearray = originalImage[i];
+            returnImage[i] = originalImage[originalImage.length - 1 - i];
+            returnImage[originalImage.length - 1 - i] = onearray;
         }
         return returnImage;
     }
@@ -69,7 +72,7 @@ public class Transform {
         RGBAPixel[][] returnImage = new RGBAPixel[originalImage.length][originalImage[0].length];
         for (int i = 0; i < originalImage.length; i++) {
             for (int j = 0; j < originalImage[i].length; j++) {
-                returnImage[i][j] = originalImage[i][originalImage[j].length - 1 - j];
+                returnImage[i][j] = originalImage[i][originalImage[i].length - 1 - j];
             }
         }
         return returnImage;
@@ -104,13 +107,11 @@ public class Transform {
      * @return the expanded image
      */
     public static RGBAPixel[][] rotateLeft(final RGBAPixel[][] originalImage) {
-        RGBAPixel[][] returnImage = new RGBAPixel[originalImage.length][originalImage[0].length];
-        for (int i = 0; i < originalImage.length; i++) {
-            for (int j = 0; j < originalImage[i].length; j++) {
-                returnImage[i][j] = originalImage[j][originalImage.length - i - 1];
-            }
+        RGBAPixel[][] copiedarray = RGBAPixel.copyArray(originalImage);
+        for (int i = 0; i < NUMB; i++) {
+            copiedarray = rotateRight(copiedarray);
         }
-        return returnImage;
+        return copiedarray;
     }
 
     /**
@@ -120,10 +121,32 @@ public class Transform {
      * @return the expanded image
      */
     public static RGBAPixel[][] rotateRight(final RGBAPixel[][] originalImage) {
+        int smallersize = Math.min(originalImage.length, originalImage[0].length);
         RGBAPixel[][] returnImage = new RGBAPixel[originalImage.length][originalImage[0].length];
-        for (int i = 0; i < originalImage.length; i++) {
+        RGBAPixel[][] smallerimage = new RGBAPixel[smallersize][smallersize];
+        int k = 0;
+        int l = 0;
+        for (int i = (originalImage.length - smallersize) / 2; i < (originalImage.length + smallersize) / 2; i++) {
             for (int j = 0; j < originalImage[i].length; j++) {
-                returnImage[i][j] = originalImage[originalImage.length - j - 1][i];
+                smallerimage[k][l] = originalImage[i][j];
+                k++;
+            }
+            l++;
+            k = 0;
+        }
+        for (int i = 0; i < smallerimage.length; i++) {
+            for (int j = 0; j < smallerimage[i].length; j++) {
+                returnImage[i][j] = smallerimage[smallerimage.length - j - 1][i];
+            }
+        }
+        for (int i = 0; i < (returnImage.length - smallersize) / 2; i++) {
+            for (int j = 0; j < returnImage[i].length; j++) {
+                returnImage[i][j] = RGBAPixel.getFillValue();
+            }
+        }
+        for (int i = (returnImage.length + smallersize) / 2; i < returnImage.length; i++) {
+            for (int j = 0; j < returnImage[i].length; j++) {
+                returnImage[i][j] = RGBAPixel.getFillValue();
             }
         }
         return returnImage;

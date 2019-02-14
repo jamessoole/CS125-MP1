@@ -185,6 +185,16 @@ public final class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Shift down button clicked");
             startProcessImage("shiftDown");
         });
+        final ImageButton flipHorizontal = findViewById(R.id.flipHorizontal);
+        flipHorizontal.setOnClickListener(v -> {
+            Log.d(TAG, "flip horoz");
+            startProcessImage("flipHorizontal");
+        });
+        final ImageButton flipVertical = findViewById(R.id.flipVertical);
+        flipVertical.setOnClickListener(v -> {
+            Log.d(TAG, "flip vert");
+            startProcessImage("flipVertical");
+        });
         final ImageButton rotateLeft = findViewById(R.id.rotateLeft);
         rotateLeft.setOnClickListener(v -> {
             Log.d(TAG, "Rotate left button clicked");
@@ -223,6 +233,7 @@ public final class MainActivity extends AppCompatActivity {
         });
         final ImageButton save = findViewById(R.id.save);
         save.setOnClickListener(v -> saveCurrentBitmap());
+
 
         /*
          * Start off with buttons disabled and enable them once the user loads an image.

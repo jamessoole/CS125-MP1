@@ -230,6 +230,12 @@ class Tasks {
                 case "shiftDown":
                     pixels = Transform.shiftDown(pixels, MainActivity.DEFAULT_SHIFT_VALUE);
                     break;
+                case "flipHorizontal":
+                    pixels = Transform.flipHorizontal(pixels);
+                    break;
+                case "flipVertical":
+                    pixels = Transform.flipVertical(pixels);
+                    break;
                 case "rotateLeft":
                     pixels = Transform.rotateLeft(pixels);
                     break;
