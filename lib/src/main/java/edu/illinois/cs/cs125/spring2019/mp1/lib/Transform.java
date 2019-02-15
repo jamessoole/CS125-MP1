@@ -126,9 +126,12 @@ public class Transform {
         RGBAPixel[][] smallerimage = new RGBAPixel[smallersize][smallersize];
         int k = 0;
         int l = 0;
+
         for (int i = (originalImage.length - smallersize) / 2; i < (originalImage.length + smallersize) / 2; i++) {
+            System.out.println("i is " + i);
             for (int j = 0; j < originalImage[i].length; j++) {
                 smallerimage[k][l] = originalImage[i][j];
+                System.out.println("j is " + j);
                 k++;
             }
             l++;
@@ -139,16 +142,22 @@ public class Transform {
                 returnImage[i][j] = smallerimage[smallerimage.length - j - 1][i];
             }
         }
+        if (originalImage.length == originalImage[0].length) {
+            return smallerimage;
+        }
         for (int i = 0; i < (returnImage.length - smallersize) / 2; i++) {
             for (int j = 0; j < returnImage[i].length; j++) {
                 returnImage[i][j] = RGBAPixel.getFillValue();
             }
         }
-        for (int i = (returnImage.length + smallersize) / 2; i < returnImage.length; i++) {
+        for (int i = (returnImage.length + smallersize) / 2 - 1; i < returnImage.length; i++) {
             for (int j = 0; j < returnImage[i].length; j++) {
                 returnImage[i][j] = RGBAPixel.getFillValue();
             }
         }
+        System.out.println(RGBAPixel.printArray(originalImage));
+        System.out.println("pause");
+        System.out.println(RGBAPixel.printArray(returnImage));
         return returnImage;
     }
 
