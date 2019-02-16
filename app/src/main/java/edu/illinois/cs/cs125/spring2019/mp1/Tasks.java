@@ -242,9 +242,11 @@ class Tasks {
                 case "rotateRight":
                     pixels = Transform.rotateRight(pixels);
                     break;
-                case "expand":
-                    pixels = Transform.expandVertical(pixels, MainActivity.DEFAULT_SCALE_FACTOR);
+                case "expandHorizontal":
                     pixels = Transform.expandHorizontal(pixels, MainActivity.DEFAULT_SCALE_FACTOR);
+                    break;
+                case "expandVertical":
+                    pixels = Transform.expandVertical(pixels, MainActivity.DEFAULT_SCALE_FACTOR);
                     break;
                 case "shrink":
                     pixels = Transform.shrinkVertical(pixels, MainActivity.DEFAULT_SCALE_FACTOR);
