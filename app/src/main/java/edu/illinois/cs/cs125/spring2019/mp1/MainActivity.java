@@ -597,7 +597,7 @@ public final class MainActivity extends AppCompatActivity {
     private void enableOrDisableButtons(final boolean enableOrDisable) {
         Log.d(TAG, "enableOrDisable " + enableOrDisable);
         for (int viewID : new int[] {R.id.shiftDown, R.id.shiftDown, R.id.rotateLeft, R.id.rotateRight,
-            R.id.shiftLeft, R.id.shiftRight, R.id., R.id.greenScreen, R.id.shrink,
+            R.id.shiftLeft, R.id.shiftRight, R.id.expand, R.id.greenScreen, R.id.shrink,
             R.id.flipVertical, R.id.flipHorizontal}) {
             final ImageButton button = findViewById(viewID);
             button.setClickable(enableOrDisable);
